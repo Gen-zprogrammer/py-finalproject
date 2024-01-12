@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/login">Logout</a>
+    </nav>
+
+    <div class="container mt-5">
+        <!-- Form Section -->
+        <section class="section__container" id="form">
+            <div class="container">
+                <h2 class="section__header">CREATE QR</h2>
+                <form method="post">
+                    <!-- Kelas Input -->
+                    <div class="form-group">
+                        <label for="kelas">KELAS:</label>
+                        <input type="text" class="form-control" id="kelas" name="kelas" required>
+                    </div>
+
+                    <!-- Dosen Input (Read-only) -->
+                    <div class="form-group">
+                        <label for="dosen">DOSEN:</label>
+                        <input type="text" class="form-control" id="dosen" name="dosen" value="{{ nama_dosen }}" required readonly>
+                    </div>
+
+                    <!-- Hari Input -->
+                    <div class="form-group">
+                        <label for="hari">HARI:</label>
+                        <input type="datetime-local" class="form-control" id="hari" name="hari" value="{{ current_time }}" required>
+                    </div>
+
+                    <!-- Praktikum Ke Input -->
+                    <div class="form-group">
+                        <label for="praktikum_ke">PRAKTIKUM KE:</label>
+                        <input type="number" class="form-control" id="praktikum_ke" name="praktikum_ke" required>
+                    </div>
+
+                    <!-- Materi Input -->
+                    <div class="form-group">
+                        <label for="materi">MATERI:</label>
+                        <input type="text" class="form-control" id="materi" name="materi" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">Generate QR Code</button>
+
+                    <!-- Kembali Button -->
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Kembali</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
